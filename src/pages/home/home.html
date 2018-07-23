@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+
+  <ion-card>
+    <img src="https://www.freewebheaders.com/wordpress/wp-content/gallery/golf/golf-course-putting-green-bunkers-and-blue-cloudy-sky-web-header.jpg"/>
+    <div class="card-title">LFG3 Fantasy Golf</div>
+    <div class="card-subtitle">Current Tournament Results</div>
+  </ion-card>
+  
+  <ion-list>
+      <h3>{{tournInfo.tname}}</h3>
+    <ion-item *ngFor="let player of tournInfo.leaderboard"> {{player.current_position}}: 
+      {{player.player_bio.first_name}} {{player.player_bio.last_name}} <br>Total: {{player.total}}
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>

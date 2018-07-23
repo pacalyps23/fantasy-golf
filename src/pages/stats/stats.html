@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Stats</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+
+  <ion-card>
+    <img src="https://www.freewebheaders.com/wordpress/wp-content/gallery/golf/beautiful-golf-course-bunker-and-blue-sky-web-header.jpg"
+    />
+    <div class="card-title">LFG3 Fantasy Golf</div>
+    <div class="card-subtitle">User Stats</div>
+  </ion-card>
+
+
+  <ion-content>
+    <ion-item *ngFor="let team of stats">
+      <b>{{team.email}}</b>
+      <ion-list>
+        <ion-item *ngFor="let player of team.team">
+          {{player.firstName}} {{player.lastName}} : {{player.score}}
+          
+        </ion-item>
+      </ion-list>
+      <b>Total: {{team.total}}</b>
+    </ion-item>
+  </ion-content>

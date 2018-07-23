@@ -1,0 +1,83 @@
+<!--
+  Generated template for the PlayPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Play</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content *ngIf="auth.authenticated" class="card-background-page">
+
+  <ion-card>
+    <img src="https://www.freewebheaders.com/wordpress/wp-content/gallery/golf/large-open-air-course-with-golf-stick-and-ball-web-header.jpg"
+    />
+    <div class="card-title">LFG3 Fantasy Golf</div>
+    <div class="card-subtitle">Play</div>
+  </ion-card>
+
+  <hr>
+  <h5>Round One: Pick One</h5>
+  <ion-list *ngIf=showOne>
+    <ion-item *ngFor="let player of roundOne">
+    <button ion-button (click)=addRoundOne(player)>Add</button>
+    {{player.curRank}}: {{player.plrName.first}} {{player.plrName.last}}
+    </ion-item>
+  </ion-list>
+  
+
+  <hr>
+  <h5>Round Two: Pick Two</h5>
+  <ion-list *ngIf=showTwo>
+    <ion-item *ngFor="let player of roundTwo">
+      <button ion-button (click)=addRoundTwo(player)>Add</button>
+      {{player.curRank}}: {{player.plrName.first}} {{player.plrName.last}}
+    </ion-item>
+  </ion-list>
+
+  <hr>
+  <h5>Round Three: Pick Two</h5>
+  <ion-list *ngIf=showThree>
+    <ion-item *ngFor="let player of roundThree">
+      <button ion-button (click)=addRoundThree(player) >Add</button>
+      {{player.curRank}}: {{player.plrName.first}} {{player.plrName.last}}
+    </ion-item>
+  </ion-list>
+
+  <hr>
+  <h5>My Team</h5>
+  <ion-content *ngIf=show>
+    <ion-item style="text-align: center" *ngFor="let myPlayer of myTeam">
+      {{myPlayer.firstName}} {{myPlayer.lastName}}
+    </ion-item>
+    <ion-item *ngIf=pickedTeam>
+        <button ion-button full (click)="confirmTeam()">Confirm Team</button>
+      </ion-item>
+  </ion-content>
+
+  <ion-content *ngIf=finished style="text-align: center">
+    <h3>Your Team Is Saved</h3>
+  </ion-content>
+
+</ion-content>
+
+<ion-content *ngIf="!auth.authenticated" class="card-background-page">
+    <ion-card>
+        <img src="https://www.freewebheaders.com/wordpress/wp-content/gallery/golf/large-open-air-course-with-golf-stick-and-ball-web-header.jpg"
+        />
+        <div class="card-title">LFG3 Fantasy Golf</div>
+        <div class="card-subtitle">Play</div>
+      </ion-card>
+
+      <ion-item>
+        <h2 style="text-align: center">You must be logged in to start playing</h2>
+        <button ion-button full (click)="goToLogin()">Login Page</button>
+      </ion-item>
+</ion-content>

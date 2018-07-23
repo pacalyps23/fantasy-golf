@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Rankings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+
+  <ion-card>
+    <img src="https://www.freewebheaders.com/wordpress/wp-content/gallery/golf/amazing-beautiful-golf-course-scenery-web-header.jpg"/>
+    <div class="card-title">LFG3 Fantasy Golf</div>
+    <div class="card-subtitle">Top 100 Ranking</div>
+  </ion-card>
+
+  <ion-list>
+    <ion-item *ngFor="let player of playerList">{{player.curRank}}: {{player.plrName.first}} {{player.plrName.last}}
+    </ion-item>
+  </ion-list>
+
+</ion-content>
